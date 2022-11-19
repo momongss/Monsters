@@ -1,0 +1,29 @@
+READ ME
+-------
+Asset: 3D Military War Pack v.2
+Version: 1.0
+Date: 07/08/2020 
+
+- This asset includes low poly 3D models.
+- This asset includes albedo textures.
+
+
+- Total Objects         = 83
+- Total Number Of Polys = 44,751
+- Total Number Of Verts = 49,929
+- Texture Resolution    = 2048*2048
+- Texture Type Of File  = .PNG
+                  
+Objects :-
+ 
+1. Vehicles                         -  14
+2. Military House & Tent & Bunker   -  7
+3. Roads Ground & Helipad           -  6
+4. Planes & Helicopter              -  4
+5. Soldiers                         -  4
+6. Trees                            -  8
+7. Guns                             -  7
+8. Props                            -  33
+
+
+Copyright 2020, Innovana Techlabs Limited. All rights reserved.

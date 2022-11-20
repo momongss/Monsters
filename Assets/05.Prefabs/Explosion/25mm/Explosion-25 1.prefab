@@ -34324,7 +34324,7 @@ GameObject:
   - component: {fileID: 943882534048397201}
   - component: {fileID: 5702062057696564525}
   - component: {fileID: -2690284067004305778}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Explosion-25 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

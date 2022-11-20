@@ -38,14 +38,30 @@ public class CamRotateTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHand
                 Vector2 direction = touch.deltaPosition;
                 Vector3 moveDir = (GetCamUp() * direction.y + GetCamRight() * direction.x).normalized * rotateSpeed;
 
-                target.Translate(moveDir, Space.World);
+                target.Rotate(moveDir, Space.Self);
+                // target.Translate(moveDir, Space.World);
             }
+        }
+
+        if (isRotating)
+        {
+            Vector2 currMousePos = Input.mousePosition;
+
+            Vector2 direction = currMousePos - prevMousePos;
+            Vector3 moveDir = (GetCamUp() * direction.y + GetCamRight() * direction.x).normalized * rotateSpeed;
+
+            target.Rotate(new Vector3(-moveDir.z, moveDir.x, 0f), Space.Self);
+            // target.Translate(moveDir, Space.World);
+
+            prevMousePos = currMousePos;
         }
     }
 
+    Vector2 prevMousePos;
+
     void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
     {
-        print("Down");
+        prevMousePos = Input.mousePosition;
         isRotating = true;
     }
 

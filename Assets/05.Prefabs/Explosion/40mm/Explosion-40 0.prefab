@@ -34323,7 +34323,7 @@ GameObject:
   - component: {fileID: 5194785386008211680}
   - component: {fileID: 943882534048397201}
   - component: {fileID: 5702062057696564525}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Explosion-40 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34358,10 +34358,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79016b50e22f4244baf33d1377709773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   damage: 200
   force: 800
   PS_explosion: {fileID: 1144947055950375728}
   coll: {fileID: 5702062057696564525}
+  sound: {fileID: 0}
 --- !u!136 &5702062057696564525
 CapsuleCollider:
   m_ObjectHideFlags: 0

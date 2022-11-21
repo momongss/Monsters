@@ -29,17 +29,19 @@ public class Bullet : MonoBehaviour, IPoolObject
 
     public string ID_pool;
 
+    public Gun shootedGun;
+
     [SerializeField] ParticleSystem PS_Hit;
     [SerializeField] AudioSource sound;
 
     public void Fire(Vector3 initPos, Quaternion initRot, float fireForce)
     {
-        sound.Play();
-
         transform.position = initPos;
         transform.rotation = initRot;
 
         rigid.AddForce(transform.forward * fireForce);
+
+        if (sound) sound.Play();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -56,8 +58,9 @@ public class Bullet : MonoBehaviour, IPoolObject
         explosion.transform.position = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
         explosion.Play();
 
-        sound.Stop();
-        BulletPoolManager.I.ReturnPool(this);
+        shootedGun.Return(this);
+
+        if (sound) sound.Stop();
     }
 
     public void OnCreatedInPool()

@@ -50,7 +50,8 @@ public class CamRotateTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHand
             Vector2 direction = currMousePos - prevMousePos;
             Vector3 moveDir = (GetCamUp() * direction.y + GetCamRight() * direction.x).normalized * rotateSpeed;
 
-            target.Rotate(new Vector3(-moveDir.z, moveDir.x, 0f), Space.Self);
+            print(moveDir);
+            target.Rotate(new Vector3(moveDir.x, moveDir.z, 0f), Space.Self);
             // target.Translate(moveDir, Space.World);
 
             prevMousePos = currMousePos;

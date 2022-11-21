@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkyGun25mm : SkyGunAim
+public class SkyGun25mm : Gun
 {
 
 }

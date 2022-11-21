@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class GunManager : MonoBehaviour
 {
-    public SkyGunAim gun_25mm;
-    public SkyGunAim gun_40mm;
-    public SkyGunAim gun_105mm;
+    public Gun gun_25mm;
+    public Gun gun_40mm;
+    public Gun gun_105mm;
 
-    SkyGunAim[] gunList;
+    Gun[] gunList;
 
     private void Awake()
     {
-        gunList = new SkyGunAim[3];
+        gunList = new Gun[3];
 
         gunList[0] = gun_25mm;
         gunList[1] = gun_40mm;

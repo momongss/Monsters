@@ -31,6 +31,12 @@ public class BulletPoolManager : MonoBehaviour
         levels[0] = level_25mm;
         levels[1] = level_40mm;
         levels[2] = level_105mm;
+
+        IPool<Bullet> pool = poolManagers[0].GetPool<Bullet>(0);
+        Bullet bullet = pool.Source;
+        bullet.damage = 100;
+
+        
     }
 
     public Bullet GetBullet(Bullet.Type type)

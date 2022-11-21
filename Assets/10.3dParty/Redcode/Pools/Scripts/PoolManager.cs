@@ -100,6 +100,12 @@ namespace Redcode.Pools
         /// <param name="name">Pool name.</param>
         /// <returns>Finded pool.</returns>
         public IPool<T> GetPool<T>(string name) where T : Component => (IPool<T>)_poolsObjects[_pools.FindIndex(p => p.Name == name)];
+
+        public int GetPoolCount()
+        {
+            return _poolsObjects.Count;
+        }
+
         #endregion
 
         #region Get from pool

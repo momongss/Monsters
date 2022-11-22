@@ -12,19 +12,16 @@ public class SquashNStretch : MonoBehaviour
 
     Sequence sequence;
 
+    public Vector3 scaling;
+    public float durationSquash;
+    public float durationStretch;
+
     private void Start()
     {
         if (originScale == Vector3.zero)
         {
             originScale = transform.localScale;
         }
-
-        Squash_N_Stretch();
-    }
-
-    private void OnEnable()
-    {
-        Squash_N_Stretch();
     }
 
     public void UI_Scaling_Show()
@@ -54,6 +51,40 @@ public class SquashNStretch : MonoBehaviour
                         if (callback != null) callback();
                     });
             });
+    }
+
+    public void Squash_N_Stretch()
+    {
+        if (sequence != null) sequence.Kill();
+
+        Vector3 squash_scale = new Vector3(
+            originScale.x * scaling.x,
+            originScale.y * scaling.y,
+            originScale.z * scaling.z
+            );
+
+        sequence = DOTween.Sequence();
+        sequence.Append(transform
+            .DOScale(squash_scale, durationSquash)
+            .SetEase(Ease.OutBounce)
+            .OnComplete(() =>
+            {
+                Vector3 stretch_scale = new Vector3(
+                    originScale.x * 0.9f,
+                    originScale.y * 1.2f,
+                    originScale.z * 0.9f
+                    );
+
+                transform
+                    .DOScale(stretch_scale, durationStretch)
+                    .OnComplete(() =>
+                    {
+                        transform
+                            .DOScale(originScale, 0.1f)
+                            .SetEase(Ease.OutBounce);
+                    });
+                sequence = null;
+            }));
     }
 
     public void Squash_N_Stretch(float scaling_x = 1.4f, float scaling_y = 0.5f, float scaling_z = 1.4f)
@@ -126,9 +157,9 @@ public class SquashNStretch : MonoBehaviour
         if (sequence != null) sequence.Kill();
 
         Vector3 target_scale = new Vector3(
-            originScale.x * 1.2f,
-            originScale.y * 0.5f,
-            originScale.z * 1.2f
+            originScale.x * scaling.x,
+            originScale.y * scaling.y,
+            originScale.z * scaling.z
             );
 
         sequence = DOTween.Sequence();
